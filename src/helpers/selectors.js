@@ -26,6 +26,10 @@ export function getInterview(state, interview) {
     return null
   }
   const id = interview.interviewer;
+  if (!state.interviewers[id]) {
+    console.log("THERE IS THE NULL: ", null);
+    return null;
+  }
   let obj = {
      student: interview.student,
      interviewer: {
