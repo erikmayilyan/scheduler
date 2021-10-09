@@ -1,5 +1,9 @@
 # Interview Scheduler
 
+## About The Website
+
+This is a scheduler website where a user can book an appointment with an interviewer, and the user can also edit or delete their appointment. 
+
 ## Setup
 
 Install dependencies with `npm install`.
