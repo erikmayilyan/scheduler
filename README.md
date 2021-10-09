@@ -4,6 +4,11 @@
 
 This is a scheduler website where a user can book an appointment with an interviewer, and the user can also edit or delete their appointment. 
 
+## The UI of The Site
+
+!["List Of Appointments"](monday.png)
+!["Booking An Appointments"](tuesday.png)
+
 ## Setup
 
 Install dependencies with `npm install`.
