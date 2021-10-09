@@ -6,8 +6,8 @@ This is a scheduler website where a user can book an appointment with an intervi
 
 ## The UI of The Site
 
-!["List Of Appointments"](monday.png)
-!["Booking An Appointments"](tuesday.png)
+!["List Of Appointments"](https://github.com/erikmayilyan/scheduler/blob/master/docs/monday.png)
+!["Booking An Appointments"](https://github.com/erikmayilyan/scheduler/blob/master/docs/tuesday.png)
 
 ## Setup
 
