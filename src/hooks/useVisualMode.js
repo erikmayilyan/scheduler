@@ -16,10 +16,11 @@ export function useVisualMode(initial) {
   }
 
   function back() {
-    
     if (history.length > 1) {
       history.pop()
-      setMode(history[history.length-1])
+      console.log(history)
+      setMode(history[history.length-2])
+      console.log("YES IT IS BEING CALLED!")
     }
   }
 

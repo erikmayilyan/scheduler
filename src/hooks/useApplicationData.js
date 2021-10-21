@@ -9,6 +9,7 @@ export default function useApplicationData() {
     appointments: [],
     interviewers: {},
   });
+  console.log("this is the state: ", state);
   const setDay = (day) => setState({ ...state, day });
 
   useEffect(() => {
@@ -36,8 +37,20 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
+    const newDays = [];
+    for (let i = 0; i < state.days.length; i++) {
+      if (state.days[i].name === state.day) {
+        const updateDay = {
+          ...state.days[i],
+          spots: state.days[i].spots - 1
+        };
+        newDays.push(updateDay);
+      } else {
+        newDays.push(state.days[i]);
+      }
+    }
     return axios.put(`/api/appointments/${id}`, appointment)
-       .then(() => setState({ ...state, appointments }))
+       .then(() => setState({ ...state, appointments, days: newDays }))
        .then(() => {
         try {
           const appointment = {
@@ -51,7 +64,7 @@ export default function useApplicationData() {
         }catch(error){
           console.log(error);
         }
-        setState({ ...state, appointments });
+        setState({ ...state, appointments, days: newDays });
        })
  
   }
@@ -65,8 +78,20 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
+    const newDays = [];
+    for (let i = 0; i < state.days.length; i++) {
+      if (state.days[i].name === state.day) {
+        const updateDay = {
+          ...state.days[i],
+          spots: state.days[i].spots + 1
+        };
+        newDays.push(updateDay);
+      } else {
+        newDays.push(state.days[i]);
+      }
+    }
     return axios.delete(`/api/appointments/${id}`, appointment)
-       .then(() => setState({ ...state, appointments }))
+       .then(() => setState({ ...state, appointments, days: newDays }))
        .then(() => {
         const appointment = {
           ...state.appointments[id],
@@ -76,7 +101,7 @@ export default function useApplicationData() {
           ...state.appointments,
           [id]: appointment,
         };
-        setState({ ...state, appointments });
+        setState({ ...state, appointments, days: newDays });
        })
   }
 
